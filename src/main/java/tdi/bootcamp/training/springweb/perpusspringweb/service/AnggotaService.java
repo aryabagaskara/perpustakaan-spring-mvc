@@ -25,10 +25,10 @@ public class AnggotaService {
 
     @Transactional
     public void delete (String id){
-        return repository.deleteById(id);
+        repository.deleteById(id);
     }
 
-    @public Iterable<Anggota> list(){
+    public Iterable<Anggota> list(){
         return repository.findAll();
     }
 

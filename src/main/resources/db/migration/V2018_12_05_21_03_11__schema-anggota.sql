@@ -4,5 +4,5 @@ create table anggota
 nama     character varying(150) not null,
 no_ktp character varying(150) not null,
 alamat character varying(150) not null,
-tanggal_lahir date not null,
+tanggal_lahir date not null
 );

@@ -24,9 +24,8 @@ public class RakApi {
     @PostMapping("/save")
     public ResponseEntity<Rak> save(
             @RequestParam String nama,
-            @RequestParam String alamat,
             @RequestParam(required = false)String id,
-            @RequestParam String lokasi){
+            @RequestParam Integer lokasi){
         Rak rak = service.save(new Rak(id,nama,lokasi));
         return ResponseEntity.ok(rak);
     }

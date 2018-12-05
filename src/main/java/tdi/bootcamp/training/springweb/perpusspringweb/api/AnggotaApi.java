@@ -28,10 +28,11 @@ public class AnggotaApi {
             @RequestParam String nama,
             @RequestParam String noKtp,
             @RequestParam String alamat,
-            @RequestParam Date tanggalLahir
+            @RequestParam String tanggalLahir //yyyy-MM-dd
             ){
-        Anggota anggota = service.save(new Anggota(id,nama,noKtp,alamat,tanggalLahir));
-        return ResponseEntity.ok(Anggota);
+
+        Anggota anggota = service.save(new Anggota(id,nama,noKtp,alamat,Date.valueOf(tanggalLahir)));
+        return ResponseEntity.ok(anggota);
     }
 
     @PutMapping("/save")
