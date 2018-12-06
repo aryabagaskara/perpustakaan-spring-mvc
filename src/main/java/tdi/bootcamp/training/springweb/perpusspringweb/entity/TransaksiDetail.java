@@ -1,16 +1,33 @@
 package tdi.bootcamp.training.springweb.perpusspringweb.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "transaksi_details")
 public class TransaksiDetail {
-    private String id;
-    private Transaksi transaksi;
-    private Book book;
 
+    @Id
+    @GenericGenerator(name = "uuid_gen", strategy = "uuid2")
+    @GeneratedValue(generator = "uuid_gen")
+    @Column(name = "id", nullable = false, length = 64)
+    private String id;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "transaksi_id", nullable = false)
+    private Transaksi transaksi;
+
+    @ManyToOne
+    @JoinColumn(name = "buku_id", nullable = false)
+    private Buku buku;
 }

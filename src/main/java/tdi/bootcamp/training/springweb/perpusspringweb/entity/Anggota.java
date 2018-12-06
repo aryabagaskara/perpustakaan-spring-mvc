@@ -21,15 +21,15 @@ public class Anggota {
     @Column(name = "id")
     private String id;
 
-    @Column(name = "nama")
+    @Column(name = "nama", nullable = false)
     private String nama;
 
-    @Column(name = "noKtp")
+    @Column(name = "noKtp", nullable = false)
     private String noKtp;
 
-    @Column(name = "alamat")
+    @Column(name = "alamat", nullable = false)
     private String alamat;
 
-    @Column(name = "tanggal_lahir")
+    @Column(name = "tanggal_lahir", nullable = false)
     private Date tanggalLahir;
 }

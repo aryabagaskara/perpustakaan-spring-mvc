@@ -33,7 +33,7 @@ public class RakApi {
     @PutMapping("/save")
     public ResponseEntity<Rak> update(@RequestBody Rak value){
         Rak rak = service.save(value);
-        return ResponseEntity.ok(value);
+        return ResponseEntity.ok(rak);
     }
 
     @DeleteMapping("/delete")

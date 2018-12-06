@@ -1,0 +1,1 @@
+alter table buku rename column tanggal_lahir to tanggal_publish;
