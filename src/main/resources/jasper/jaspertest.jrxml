@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jaspertest" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d074e4e9-00ea-48ae-ae2d-5908ffc73215">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="nama" class="java.lang.String"/>
+	<parameter name="status" class="java.lang.Boolean"/>
+	<parameter name="saldo" class="java.math.BigDecimal"/>
+	<parameter name="rakBuku" class="tdi.bootcamp.training.springweb.perpusspringweb.entity.Rak"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[nama]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="230" y="0" width="100" height="30" uuid="aa2918d7-1a2c-4747-b8e3-a60d650d0eb4"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Contoh Judul]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="450" y="60" width="100" height="30" uuid="dc9e146d-f40f-4932-b92a-5d837b1e1e6f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="48" uuid="89585cdf-969b-4109-a377-4db910f9ad4b"/>
+				<text><![CDATA[Nama Lengkap]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="0" width="80" height="30" uuid="b89c922e-ccb7-4768-aa90-cdca92e9d785"/>
+				<textFieldExpression><![CDATA[$P{nama}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="100" height="30" uuid="4da8901b-fd3a-49e1-aa21-8e348dbaa46e"/>
+				<textFieldExpression><![CDATA[$P{rakBuku}.getId()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="38" width="100" height="30" uuid="a2ff4473-4816-4cf1-86a1-b29f3bffbf3d"/>
+				<textFieldExpression><![CDATA[$P{rakBuku}.getNama()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="41" width="100" height="30" uuid="8d460bba-2bf6-46b3-b818-64a72d59fa8a"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="62" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="0" width="300" height="30" uuid="3ef445cc-68e9-4b32-8021-25f4c915fc32"/>
+				<textFieldExpression><![CDATA[$P{status}?"aktif":"tidak aktif"]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.##;¤-#,##0.##">
+				<reportElement positionType="FixRelativeToBottom" x="180" y="32" width="100" height="30" uuid="1584055d-828f-4082-8363-14e739cbb50a"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{saldo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="30" uuid="6aff1aa3-aa9a-48e3-9ba0-841c99761100"/>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="450" y="0" width="100" height="30" uuid="f54cb465-21f8-4e18-871b-0b84e6683812"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="59" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
