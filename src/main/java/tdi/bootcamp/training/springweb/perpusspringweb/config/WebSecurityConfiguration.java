@@ -33,15 +33,15 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/penerbit/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .loginPage("/signin")
-                .usernameParameter("username")
-                .passwordParameter("passwd")
-                .loginProcessingUrl("/process-sign-in")
-                .successForwardUrl("/home")
-                .permitAll()
-                .and().logout().permitAll();
-//                .httpBasic();
+//                .formLogin()
+//                .loginPage("/signin")
+//                .usernameParameter("username")
+//                .passwordParameter("passwd")
+//                .loginProcessingUrl("/process-sign-in")
+//                .successForwardUrl("/home")
+//                .permitAll()
+//                .and().logout().permitAll();
+                .httpBasic();
 
     }
 }
