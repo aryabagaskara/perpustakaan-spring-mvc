@@ -30,6 +30,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 //        super.configure(http);
         http.authorizeRequests()
+                .antMatchers("/api/penerbit/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
 //                .formLogin()

@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tdi.bootcamp.training.springweb.perpusspringweb.entity.Buku;
 import tdi.bootcamp.training.springweb.perpusspringweb.service.BukuService;
@@ -25,6 +27,7 @@ public class BukuApi {
         return ResponseEntity.ok(buku);
     }
 
+    @PostAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}")
     public ResponseEntity<Buku> findById(@PathVariable("id") String id) {
         Optional<Buku> buku = service.findById(id);
@@ -35,6 +38,7 @@ public class BukuApi {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/list")
     public Page<Buku> pagination(Pageable page) {
         return service.paginate(page);
